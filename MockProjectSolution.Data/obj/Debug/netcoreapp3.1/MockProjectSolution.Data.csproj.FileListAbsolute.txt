@@ -1,0 +1,8 @@
+C:\Users\namhv\source\repos\MockProjectSolution\MockProjectSolution.Data\bin\Debug\netcoreapp3.1\MockProjectSolution.Data.deps.json
+C:\Users\namhv\source\repos\MockProjectSolution\MockProjectSolution.Data\bin\Debug\netcoreapp3.1\MockProjectSolution.Data.dll
+C:\Users\namhv\source\repos\MockProjectSolution\MockProjectSolution.Data\obj\Debug\netcoreapp3.1\MockProjectSolution.Data.csprojAssemblyReference.cache
+C:\Users\namhv\source\repos\MockProjectSolution\MockProjectSolution.Data\obj\Debug\netcoreapp3.1\MockProjectSolution.Data.AssemblyInfoInputs.cache
+C:\Users\namhv\source\repos\MockProjectSolution\MockProjectSolution.Data\obj\Debug\netcoreapp3.1\MockProjectSolution.Data.AssemblyInfo.cs
+C:\Users\namhv\source\repos\MockProjectSolution\MockProjectSolution.Data\bin\Debug\netcoreapp3.1\MockProjectSolution.Data.runtimeconfig.json
+C:\Users\namhv\source\repos\MockProjectSolution\MockProjectSolution.Data\bin\Debug\netcoreapp3.1\MockProjectSolution.Data.runtimeconfig.dev.json
+C:\Users\namhv\source\repos\MockProjectSolution\MockProjectSolution.Data\obj\Debug\netcoreapp3.1\MockProjectSolution.Data.genruntimeconfig.cache
