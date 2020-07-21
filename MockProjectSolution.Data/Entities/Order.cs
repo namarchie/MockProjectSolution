@@ -1,4 +1,6 @@
-﻿using eShopSolution.Data.Entities;
+﻿
+using eShopSolution.Data.Entities;
+using eShopSolution.Data.Enums;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -12,6 +14,7 @@ namespace MockProjectSolution.Data.Entities
         public Guid UserId { set; get; }
         public List<OrderDetail> OrderDetails { set; get; }
         public AppUser AppUser { set; get; }
+        public OrderStatus Status { set; get; }
 
     }
 }

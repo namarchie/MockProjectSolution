@@ -14,7 +14,6 @@ namespace MockProjectSolution.Data.Configurations
             builder.ToTable("AppConfigs");
             builder.HasKey(x => x.Key);
             builder.Property(x => x.Value).IsRequired(true);
-            // ngich new brand
         }
     }
 }
