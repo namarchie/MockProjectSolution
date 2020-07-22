@@ -34,6 +34,7 @@ namespace MockProjectSolution.Data.EF
             
             modelBuilder.Entity<IdentityUserToken<Guid>>().ToTable("AppUserTokens").HasKey(x => x.UserId);
 
+            base.OnModelCreating(modelBuilder);
             //modelBuilder.Seed();
 
         }
@@ -45,6 +46,8 @@ namespace MockProjectSolution.Data.EF
         //public DbSet<AppRole> AppRoles { get; set; }
         //public DbSet<AppUser> AppUsers { get; set; }
         public DbSet<Contact> Contacts { get; set; }
+
+
 
     }
 }

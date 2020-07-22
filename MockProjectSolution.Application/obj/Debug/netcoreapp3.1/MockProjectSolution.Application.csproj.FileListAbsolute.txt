@@ -7,3 +7,6 @@ C:\Users\namhv\source\repos\MockProjectSolution\MockProjectSolution.Application\
 C:\Users\namhv\source\repos\MockProjectSolution\MockProjectSolution.Application\obj\Debug\netcoreapp3.1\MockProjectSolution.Application.csproj.CoreCompileInputs.cache
 C:\Users\namhv\source\repos\MockProjectSolution\MockProjectSolution.Application\obj\Debug\netcoreapp3.1\MockProjectSolution.Application.dll
 C:\Users\namhv\source\repos\MockProjectSolution\MockProjectSolution.Application\obj\Debug\netcoreapp3.1\MockProjectSolution.Application.pdb
+C:\Users\namhv\source\repos\MockProjectSolution\MockProjectSolution.Application\bin\Debug\netcoreapp3.1\MockProjectSolution.Data.dll
+C:\Users\namhv\source\repos\MockProjectSolution\MockProjectSolution.Application\bin\Debug\netcoreapp3.1\MockProjectSolution.Data.pdb
+C:\Users\namhv\source\repos\MockProjectSolution\MockProjectSolution.Application\obj\Debug\netcoreapp3.1\MockProjectSolution.Application.csproj.CopyComplete

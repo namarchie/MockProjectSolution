@@ -1,18 +1,21 @@
-﻿using MockProjectSolution.Application.Catalog.Products.Dtos;
-using System;
-using System.Collections.Generic;
-using System.Text;
+﻿//using MockProjectSolution.Application.Catalog.Products.Dtos;
+//using System;
+//using System.Collections.Generic;
+//using System.Text;
 
-namespace MockProjectSolution.Application.Catalog.Products
-{
-    public interface IProductService
-    {
-        public int Create(ProductCreateRequest request);
-        public int Update(ProductUpdateRequest request);
-        public int Delete(int ProductId);
-        PagedViewModel<ProductViewModel> GetAllPaging();
+//namespace MockProjectSolution.Application.Catalog.Products
+//{
+//    public interface IProductService
+//    {
+//        //Task<int> Create(ProductCreateRequest request);
+
+//        Task<int> Update(ProductUpdateRequest request);
+
+//        Task<int> Delete(int productId);
+
+//        Task<PagedResult<ProductViewModel>> GetAllPaging(GetProductPagingRequest request);
 
 
 
-    }
-}
+//    }
+//}

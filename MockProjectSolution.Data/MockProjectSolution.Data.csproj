@@ -22,9 +22,4 @@
     <PackageReference Include="Microsoft.Extensions.Identity.Stores" Version="3.1.6" />
   </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\MockProjectSolution.Application\MockProjectSolution.Application.csproj" />
-    <ProjectReference Include="..\MockProjectSolution.WebApp\MockProjectSolution.WebApp.csproj" />
-  </ItemGroup>
-
 </Project>

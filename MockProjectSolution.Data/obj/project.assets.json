@@ -1402,32 +1402,6 @@
         "runtime": {
           "lib/netstandard1.3/System.Xml.XmlSerializer.dll": {}
         }
-      },
-      "MockProjectSolution.Application/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v3.1",
-        "compile": {
-          "bin/placeholder/MockProjectSolution.Application.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/MockProjectSolution.Application.dll": {}
-        },
-        "frameworkReferences": [
-          "Microsoft.AspNetCore.App"
-        ]
-      },
-      "MockProjectSolution.WebApp/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v3.1",
-        "compile": {
-          "bin/placeholder/MockProjectSolution.WebApp.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/MockProjectSolution.WebApp.dll": {}
-        },
-        "frameworkReferences": [
-          "Microsoft.AspNetCore.App"
-        ]
       }
     }
   },
@@ -5304,16 +5278,6 @@
         "system.xml.xmlserializer.4.3.0.nupkg.sha512",
         "system.xml.xmlserializer.nuspec"
       ]
-    },
-    "MockProjectSolution.Application/1.0.0": {
-      "type": "project",
-      "path": "../MockProjectSolution.Application/MockProjectSolution.Application.csproj",
-      "msbuildProject": "../MockProjectSolution.Application/MockProjectSolution.Application.csproj"
-    },
-    "MockProjectSolution.WebApp/1.0.0": {
-      "type": "project",
-      "path": "../MockProjectSolution.WebApp/MockProjectSolution.WebApp.csproj",
-      "msbuildProject": "../MockProjectSolution.WebApp/MockProjectSolution.WebApp.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -5326,9 +5290,7 @@
       "Microsoft.Extensions.Configuration.Binder >= 3.1.6",
       "Microsoft.Extensions.Configuration.FileExtensions >= 3.1.6",
       "Microsoft.Extensions.Configuration.Json >= 3.1.6",
-      "Microsoft.Extensions.Identity.Stores >= 3.1.6",
-      "MockProjectSolution.Application >= 1.0.0",
-      "MockProjectSolution.WebApp >= 1.0.0"
+      "Microsoft.Extensions.Identity.Stores >= 3.1.6"
     ]
   },
   "packageFolders": {
@@ -5356,14 +5318,7 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
-          "projectReferences": {
-            "C:\\Users\\namhv\\source\\repos\\MockProjectSolution\\MockProjectSolution.Application\\MockProjectSolution.Application.csproj": {
-              "projectPath": "C:\\Users\\namhv\\source\\repos\\MockProjectSolution\\MockProjectSolution.Application\\MockProjectSolution.Application.csproj"
-            },
-            "C:\\Users\\namhv\\source\\repos\\MockProjectSolution\\MockProjectSolution.WebApp\\MockProjectSolution.WebApp.csproj": {
-              "projectPath": "C:\\Users\\namhv\\source\\repos\\MockProjectSolution\\MockProjectSolution.WebApp\\MockProjectSolution.WebApp.csproj"
-            }
-          }
+          "projectReferences": {}
         }
       },
       "warningProperties": {
@@ -5427,9 +5382,6 @@
         "assetTargetFallback": true,
         "warn": true,
         "frameworkReferences": {
-          "Microsoft.AspNetCore.App": {
-            "privateAssets": "none"
-          },
           "Microsoft.NETCore.App": {
             "privateAssets": "all"
           }
