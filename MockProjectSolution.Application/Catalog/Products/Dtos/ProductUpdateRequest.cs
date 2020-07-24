@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Http;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -12,7 +13,7 @@ namespace MockProjectSolution.Application.Catalog.Products.Dtos
         public decimal Price { set; get; }
         public string Name { set; get; }
         public string Description { set; get; }
-        public string Image { set; get; }
+        public IFormFile Image { set; get; }
         public int CategoryId { set; get; }
     }
 }

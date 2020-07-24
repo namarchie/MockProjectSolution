@@ -10,6 +10,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.OpenApi.Models;
+using MockProjectSolution.Application.Catalog.Products;
 using MockProjectSolution.Data.EF;
 using MongoDB.Driver.Core.Configuration;
 
@@ -30,7 +32,11 @@ namespace MockProjectSolution.Api
             services.AddMvc();
             services.AddControllersWithViews();
             services.AddDbContext<MockProjectDbContext>(Options => Options.UseSqlServer(Configuration.GetConnectionString("MockProjectSolution")));
-            
+            services.AddTransient<IProductService, ProductService>();
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Mock Project", Version = "v1" });
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -52,6 +58,12 @@ namespace MockProjectSolution.Api
             app.UseRouting();
 
             app.UseAuthorization();
+            app.UseSwagger();
+            
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Mock Project V1");
+            });
 
             app.UseEndpoints(endpoints =>
             {

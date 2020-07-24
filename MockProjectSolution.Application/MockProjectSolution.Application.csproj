@@ -5,11 +5,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.AspNet.Mvc" Version="5.2.7" />
     <PackageReference Include="Microsoft.AspNetCore.Http.Features" Version="3.1.6" />
     <PackageReference Include="Microsoft.CrmSdk.Workflow" Version="9.0.2.26" />
+	<FrameworkReference Include="Microsoft.AspNetCore.App" />
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\MockProjectSolution.Common\MockProjectSolution.Common.csproj" />
     <ProjectReference Include="..\MockProjectSolution.Data\MockProjectSolution.Data.csproj" />
   </ItemGroup>
 

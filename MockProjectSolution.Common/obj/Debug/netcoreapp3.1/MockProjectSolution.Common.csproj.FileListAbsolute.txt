@@ -1,0 +1,9 @@
+C:\Users\namhv\source\repos\MockProjectSolution\MockProjectSolution.Common\bin\Debug\netcoreapp3.1\MockProjectSolution.Common.deps.json
+C:\Users\namhv\source\repos\MockProjectSolution\MockProjectSolution.Common\bin\Debug\netcoreapp3.1\MockProjectSolution.Common.dll
+C:\Users\namhv\source\repos\MockProjectSolution\MockProjectSolution.Common\bin\Debug\netcoreapp3.1\MockProjectSolution.Common.pdb
+C:\Users\namhv\source\repos\MockProjectSolution\MockProjectSolution.Common\obj\Debug\netcoreapp3.1\MockProjectSolution.Common.csprojAssemblyReference.cache
+C:\Users\namhv\source\repos\MockProjectSolution\MockProjectSolution.Common\obj\Debug\netcoreapp3.1\MockProjectSolution.Common.AssemblyInfoInputs.cache
+C:\Users\namhv\source\repos\MockProjectSolution\MockProjectSolution.Common\obj\Debug\netcoreapp3.1\MockProjectSolution.Common.AssemblyInfo.cs
+C:\Users\namhv\source\repos\MockProjectSolution\MockProjectSolution.Common\obj\Debug\netcoreapp3.1\MockProjectSolution.Common.csproj.CoreCompileInputs.cache
+C:\Users\namhv\source\repos\MockProjectSolution\MockProjectSolution.Common\obj\Debug\netcoreapp3.1\MockProjectSolution.Common.dll
+C:\Users\namhv\source\repos\MockProjectSolution\MockProjectSolution.Common\obj\Debug\netcoreapp3.1\MockProjectSolution.Common.pdb
