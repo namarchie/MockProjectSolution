@@ -56,6 +56,14 @@
             "Microsoft.CrmSdk.Workflow": {
               "target": "Package",
               "version": "[9.0.2.26, )"
+            },
+            "Microsoft.IdentityModel.Tokens": {
+              "target": "Package",
+              "version": "[6.7.1, )"
+            },
+            "System.IdentityModel.Tokens.Jwt": {
+              "target": "Package",
+              "version": "[6.7.1, )"
             }
           },
           "imports": [
