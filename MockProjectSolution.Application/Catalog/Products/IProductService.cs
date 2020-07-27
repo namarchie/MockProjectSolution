@@ -14,7 +14,8 @@ namespace MockProjectSolution.Application.Catalog.Products
 
         Task<int> Delete(int productId);
 
-        Task<PagedResult<ProductViewModel>> GetAllPaging(GetProductPagingRequest request);
+        Task<PagedResult<ProductViewModel>> GetAllPaging(GetProductPagingRequest request, int categoryId);
+        Task<ProductViewModel> GetById(int productId);
 
         string NewImage(ProductCreateRequest request);
         string UpdateImage(ProductUpdateRequest request);

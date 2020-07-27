@@ -9,3 +9,4 @@ C:\Users\namhv\source\repos\MockProjectSolution\MockProjectSolution.Data\bin\Deb
 C:\Users\namhv\source\repos\MockProjectSolution\MockProjectSolution.Data\obj\Debug\netcoreapp3.1\MockProjectSolution.Data.dll
 C:\Users\namhv\source\repos\MockProjectSolution\MockProjectSolution.Data\obj\Debug\netcoreapp3.1\MockProjectSolution.Data.pdb
 C:\Users\namhv\source\repos\MockProjectSolution\MockProjectSolution.Data\obj\Debug\netcoreapp3.1\MockProjectSolution.Data.csproj.CoreCompileInputs.cache
+C:\Users\namhv\source\repos\MockProjectSolution\MockProjectSolution.Data\obj\Debug\netcoreapp3.1\MockProjectSolution.Data.csprojAssemblyReference.cache

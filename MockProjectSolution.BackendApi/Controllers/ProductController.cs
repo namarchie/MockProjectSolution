@@ -55,6 +55,25 @@ namespace MockProjectSolution.Api.Controllers
             return Ok();
 
         }
+        [HttpGet("GetAll")]
+        public async Task<IActionResult> GetAllPaging ( int CategoryId=1 , string keyword="" , int pageIndex=1, int pageSize=10)
+        {
+            GetProductPagingRequest request = new GetProductPagingRequest()
+            {
+                PageIndex=pageIndex,
+                PageSize =pageSize,
+                Keyword = keyword
+            };
+            var affected = await _productService.GetAllPaging(request, CategoryId);
+            return Ok(affected);
+
+        }
+        [HttpGet("{productId}")]
+        public async Task<IActionResult> GetById (int productId)
+        {
+            var affected = await _productService.GetById(productId);
+            return Ok(affected);
+        }
 
     }
 }
