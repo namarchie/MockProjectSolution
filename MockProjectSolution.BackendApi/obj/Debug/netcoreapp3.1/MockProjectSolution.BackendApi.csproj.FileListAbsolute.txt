@@ -88,6 +88,10 @@ C:\Users\namhv\source\repos\MockProjectSolution\MockProjectSolution.BackendApi\o
 C:\Users\namhv\source\repos\MockProjectSolution\MockProjectSolution.BackendApi\obj\Debug\netcoreapp3.1\MockProjectSolution.BackendApi.dll
 C:\Users\namhv\source\repos\MockProjectSolution\MockProjectSolution.BackendApi\obj\Debug\netcoreapp3.1\MockProjectSolution.BackendApi.pdb
 C:\Users\namhv\source\repos\MockProjectSolution\MockProjectSolution.BackendApi\obj\Debug\netcoreapp3.1\MockProjectSolution.BackendApi.genruntimeconfig.cache
+C:\Users\namhv\source\repos\MockProjectSolution\MockProjectSolution.BackendApi\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\namhv\source\repos\MockProjectSolution\MockProjectSolution.BackendApi\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.dll
+C:\Users\namhv\source\repos\MockProjectSolution\MockProjectSolution.BackendApi\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\namhv\source\repos\MockProjectSolution\MockProjectSolution.BackendApi\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
 C:\Users\namhv\source\repos\MockProjectSolution\MockProjectSolution.BackendApi\obj\Debug\netcoreapp3.1\MockProjectSolution.BackendApi.csproj.CoreCompileInputs.cache
 C:\Users\namhv\source\repos\MockProjectSolution\MockProjectSolution.BackendApi\obj\Debug\netcoreapp3.1\MockProjectSolution.BackendApi.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\namhv\source\repos\MockProjectSolution\MockProjectSolution.BackendApi\obj\Debug\netcoreapp3.1\MockProjectSolution.BackendApi.MvcApplicationPartsAssemblyInfo.cache
