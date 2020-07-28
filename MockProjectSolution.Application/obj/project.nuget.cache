@@ -1,9 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "YBznt4CJIhbdALmItQOjieC/LYVe+7Nyk91t96ZOxjMAT+urSIPwC6hhLwQDUkot7qUA6HT8jETzTSEVYKLfDg==",
+  "dgSpecHash": "Q1B8N4x6eITnAx9W6ktxL1ncw33ENSdNYRcl9oiiTeNgXygJy31UgCLMY89LtFEGgmgfdkV9GsthcqSU5aYdHQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\namhv\\source\\repos\\MockProjectSolution\\MockProjectSolution.Application\\MockProjectSolution.Application.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\namhv\\.nuget\\packages\\fluentvalidation\\9.0.1\\fluentvalidation.9.0.1.nupkg.sha512",
+    "C:\\Users\\namhv\\.nuget\\packages\\fluentvalidation.aspnetcore\\9.0.1\\fluentvalidation.aspnetcore.9.0.1.nupkg.sha512",
+    "C:\\Users\\namhv\\.nuget\\packages\\fluentvalidation.dependencyinjectionextensions\\9.0.1\\fluentvalidation.dependencyinjectionextensions.9.0.1.nupkg.sha512",
     "C:\\Users\\namhv\\.nuget\\packages\\microsoft.aspnet.mvc\\5.2.7\\microsoft.aspnet.mvc.5.2.7.nupkg.sha512",
     "C:\\Users\\namhv\\.nuget\\packages\\microsoft.aspnet.razor\\3.2.7\\microsoft.aspnet.razor.3.2.7.nupkg.sha512",
     "C:\\Users\\namhv\\.nuget\\packages\\microsoft.aspnet.webpages\\3.2.7\\microsoft.aspnet.webpages.3.2.7.nupkg.sha512",

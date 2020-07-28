@@ -22,7 +22,7 @@ namespace MockProjectSolution.BackendApi.Controllers
         }
         [HttpPost("authenticate")]
         [AllowAnonymous]
-        public async Task<IActionResult> Authenticate([FromForm] LoginRequest request)
+        public async Task<IActionResult> Authenticate([FromBody] LoginRequest request)
         {
             if(!ModelState.IsValid)
             {
@@ -30,11 +30,11 @@ namespace MockProjectSolution.BackendApi.Controllers
             }
             var resultToken = await _userService.Authenticate(request);
             if (string.IsNullOrEmpty(resultToken)) return BadRequest("Tai khoan hoac mat khau chua dung");
-            return Ok(new { token = resultToken });
+            return Ok(resultToken);
         }
-        [HttpPost("register")]
+        [HttpPost]
         [AllowAnonymous]
-        public async Task<IActionResult> Register([FromForm] RegisterRequest request)
+        public async Task<IActionResult> Register([FromBody] RegisterRequest request)
         {
             if (!ModelState.IsValid)
             {
@@ -43,6 +43,12 @@ namespace MockProjectSolution.BackendApi.Controllers
             var result = await _userService.Register(request);
             if (!result) return BadRequest("Dang ky khong thanh cong");
             return Ok();
+        }
+        [HttpGet("paging")]
+        public async Task<IActionResult> GetAllPaging ([FromQuery] GetUserPagingRequest request)
+        {
+            var users = await _userService.GetUsersPaging(request);
+            return Ok(users);
         }
     }
 }

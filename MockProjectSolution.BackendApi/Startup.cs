@@ -4,6 +4,8 @@ using System.Configuration;
 using System.Linq;
 using System.Threading.Tasks;
 using eShopSolution.Data.Entities;
+using FluentValidation;
+using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -17,6 +19,7 @@ using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using MockProjectSolution.Application.Catalog.Products;
 using MockProjectSolution.Application.Catalog.Users;
+using MockProjectSolution.Application.Users.Dtos;
 using MockProjectSolution.Data.EF;
 using MongoDB.Driver.Core.Configuration;
 
@@ -35,7 +38,7 @@ namespace MockProjectSolution.Api
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
-            services.AddControllersWithViews();
+            services.AddControllers().AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<LoginRequestValidator>());
             services.AddDbContext<MockProjectDbContext>(Options => Options.UseSqlServer(Configuration.GetConnectionString("MockProjectSolution")));
             services.AddIdentity<AppUser, AppRole>().AddEntityFrameworkStores<MockProjectDbContext>().AddDefaultTokenProviders();
             services.AddTransient<IProductService, ProductService>();
@@ -43,6 +46,8 @@ namespace MockProjectSolution.Api
             services.AddTransient<SignInManager<AppUser>, SignInManager<AppUser>>();
             services.AddTransient<RoleManager<AppRole>, RoleManager<AppRole>>();
             services.AddTransient<IUserService, UserService>();
+            services.AddTransient<IValidator<LoginRequest>, LoginRequestValidator>();
+            services.AddTransient<IValidator<RegisterRequest>, RegisterRequestValidator>();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Mock Project", Version = "v1" });

@@ -92,6 +92,9 @@ C:\Users\namhv\source\repos\MockProjectSolution\MockProjectSolution.BackendApi\b
 C:\Users\namhv\source\repos\MockProjectSolution\MockProjectSolution.BackendApi\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.dll
 C:\Users\namhv\source\repos\MockProjectSolution\MockProjectSolution.BackendApi\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
 C:\Users\namhv\source\repos\MockProjectSolution\MockProjectSolution.BackendApi\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+C:\Users\namhv\source\repos\MockProjectSolution\MockProjectSolution.BackendApi\bin\Debug\netcoreapp3.1\FluentValidation.dll
+C:\Users\namhv\source\repos\MockProjectSolution\MockProjectSolution.BackendApi\bin\Debug\netcoreapp3.1\FluentValidation.AspNetCore.dll
+C:\Users\namhv\source\repos\MockProjectSolution\MockProjectSolution.BackendApi\bin\Debug\netcoreapp3.1\FluentValidation.DependencyInjectionExtensions.dll
 C:\Users\namhv\source\repos\MockProjectSolution\MockProjectSolution.BackendApi\obj\Debug\netcoreapp3.1\MockProjectSolution.BackendApi.csproj.CoreCompileInputs.cache
 C:\Users\namhv\source\repos\MockProjectSolution\MockProjectSolution.BackendApi\obj\Debug\netcoreapp3.1\MockProjectSolution.BackendApi.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\namhv\source\repos\MockProjectSolution\MockProjectSolution.BackendApi\obj\Debug\netcoreapp3.1\MockProjectSolution.BackendApi.MvcApplicationPartsAssemblyInfo.cache

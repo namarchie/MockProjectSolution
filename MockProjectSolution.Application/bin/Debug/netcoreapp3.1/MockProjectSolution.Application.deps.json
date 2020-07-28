@@ -8,6 +8,8 @@
     ".NETCoreApp,Version=v3.1": {
       "MockProjectSolution.Application/1.0.0": {
         "dependencies": {
+          "FluentValidation": "9.0.1",
+          "FluentValidation.AspNetCore": "9.0.1",
           "Microsoft.AspNet.Mvc": "5.2.7",
           "Microsoft.AspNetCore.Http.Features": "3.1.6",
           "Microsoft.CrmSdk.Workflow": "9.0.2.26",
@@ -18,6 +20,38 @@
         },
         "runtime": {
           "MockProjectSolution.Application.dll": {}
+        }
+      },
+      "FluentValidation/9.0.1": {
+        "runtime": {
+          "lib/netstandard2.0/FluentValidation.dll": {
+            "assemblyVersion": "9.0.0.0",
+            "fileVersion": "9.0.1.0"
+          }
+        }
+      },
+      "FluentValidation.AspNetCore/9.0.1": {
+        "dependencies": {
+          "FluentValidation": "9.0.1",
+          "FluentValidation.DependencyInjectionExtensions": "9.0.1"
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/FluentValidation.AspNetCore.dll": {
+            "assemblyVersion": "9.0.0.0",
+            "fileVersion": "9.0.1.0"
+          }
+        }
+      },
+      "FluentValidation.DependencyInjectionExtensions/9.0.1": {
+        "dependencies": {
+          "FluentValidation": "9.0.1",
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "3.1.6"
+        },
+        "runtime": {
+          "lib/netstandard2.0/FluentValidation.DependencyInjectionExtensions.dll": {
+            "assemblyVersion": "9.0.0.0",
+            "fileVersion": "9.0.1.0"
+          }
         }
       },
       "Microsoft.AspNet.Mvc/5.2.7": {
@@ -1111,6 +1145,27 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "FluentValidation/9.0.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-GeF+cPknUFFJ5FkCybmQShaXWwJowBuJozgns6In37wiP2zOWx+kdNPBAN9BlDyhcORdxtXeGnkLZ+OFT85onQ==",
+      "path": "fluentvalidation/9.0.1",
+      "hashPath": "fluentvalidation.9.0.1.nupkg.sha512"
+    },
+    "FluentValidation.AspNetCore/9.0.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-7DlvStNVZwSAbLC5GyT3nGa8K11hb9R+W6BgnYnSjvnPFGWKpyANwuGTl8HShOInjXJqIJykqHo1UcdemTq/7g==",
+      "path": "fluentvalidation.aspnetcore/9.0.1",
+      "hashPath": "fluentvalidation.aspnetcore.9.0.1.nupkg.sha512"
+    },
+    "FluentValidation.DependencyInjectionExtensions/9.0.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-h71E7XXjFJZsIs6s7AJz2uF4g2BTmEJk3mTKviVRtXuAUF9yV3B7glZjIpEncV6i4u7caqFixKeVpSBB3jVL9w==",
+      "path": "fluentvalidation.dependencyinjectionextensions/9.0.1",
+      "hashPath": "fluentvalidation.dependencyinjectionextensions.9.0.1.nupkg.sha512"
     },
     "Microsoft.AspNet.Mvc/5.2.7": {
       "type": "package",

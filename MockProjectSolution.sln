@@ -14,7 +14,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MockProjectSolution.Data", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MockProjectSolution.Application", "MockProjectSolution.Application\MockProjectSolution.Application.csproj", "{0F5A9D26-7D20-4BB6-965F-E00169C9F1ED}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MockProjectSolution.Common", "MockProjectSolution.Common\MockProjectSolution.Common.csproj", "{F3009864-32DD-4C33-AEB9-39B638712ABE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MockProjectSolution.Common", "MockProjectSolution.Common\MockProjectSolution.Common.csproj", "{F3009864-32DD-4C33-AEB9-39B638712ABE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MockProjectSolution.AdminApp", "MockProjectSolution.AdminApp\MockProjectSolution.AdminApp.csproj", "{4B002320-16B4-4D9A-B264-28B26F56DC59}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -38,6 +40,10 @@ Global
 		{F3009864-32DD-4C33-AEB9-39B638712ABE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F3009864-32DD-4C33-AEB9-39B638712ABE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F3009864-32DD-4C33-AEB9-39B638712ABE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4B002320-16B4-4D9A-B264-28B26F56DC59}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4B002320-16B4-4D9A-B264-28B26F56DC59}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4B002320-16B4-4D9A-B264-28B26F56DC59}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4B002320-16B4-4D9A-B264-28B26F56DC59}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
