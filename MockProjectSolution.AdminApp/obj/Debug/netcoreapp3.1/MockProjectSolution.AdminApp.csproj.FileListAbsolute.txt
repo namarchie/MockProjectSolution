@@ -438,3 +438,7 @@ C:\Users\namhv\source\repos\MockProjectSolution\MockProjectSolution.AdminApp\obj
 C:\Users\namhv\source\repos\MockProjectSolution\MockProjectSolution.AdminApp\obj\Debug\netcoreapp3.1\Razor\Views\User\Index.cshtml.g.cs
 C:\Users\namhv\source\repos\MockProjectSolution\MockProjectSolution.AdminApp\obj\Debug\netcoreapp3.1\Razor\Views\User\Create.cshtml.g.cs
 C:\Users\namhv\source\repos\MockProjectSolution\MockProjectSolution.AdminApp\obj\Debug\netcoreapp3.1\Razor\Views\Login\Index.cshtml.g.cs
+C:\Users\namhv\source\repos\MockProjectSolution\MockProjectSolution.AdminApp\obj\Debug\netcoreapp3.1\Razor\Views\User\Update.cshtml.g.cs
+C:\Users\namhv\source\repos\MockProjectSolution\MockProjectSolution.AdminApp\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Components\Pager\Default.cshtml.g.cs
+C:\Users\namhv\source\repos\MockProjectSolution\MockProjectSolution.AdminApp\obj\Debug\netcoreapp3.1\Razor\Views\User\Detail.cshtml.g.cs
+C:\Users\namhv\source\repos\MockProjectSolution\MockProjectSolution.AdminApp\obj\Debug\netcoreapp3.1\Razor\Views\User\Delete.cshtml.g.cs

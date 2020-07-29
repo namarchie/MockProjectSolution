@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace MockProjectSolution.Application.Catalog.Products.Dtos
+namespace MockProjectSolution.Application.Common
 {
-    public class PagesResultBase
+    public class PagedResultBase
     {
         public int PageIndex { get; set; }
 

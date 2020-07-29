@@ -1,11 +1,10 @@
-﻿using MockProjectSolution.Application.Common;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace MockProjectSolution.Application.Catalog.Products.Dtos
+namespace MockProjectSolution.Application.Common
 {
-    public class PagingRequestBase : RequestBase
+    public class PagingRequestBase
     {
         public int PageIndex { get; set; }
 

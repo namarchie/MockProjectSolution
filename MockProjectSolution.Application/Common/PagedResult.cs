@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace MockProjectSolution.Application.Catalog.Products.Dtos
+namespace MockProjectSolution.Application.Common
 {
-    public class PagedResult<T> : PagesResultBase
+    public class PagedResult<T> : PagedResultBase
     {
         public List<T> Items { set; get; }
     }

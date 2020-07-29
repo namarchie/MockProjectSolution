@@ -1,4 +1,4 @@
-﻿using MockProjectSolution.Application.Catalog.Products.Dtos;
+﻿using MockProjectSolution.Application.Common;
 using MockProjectSolution.Application.Users.Dtos;
 using System;
 using System.Collections.Generic;
@@ -9,8 +9,11 @@ namespace MockProjectSolution.AdminApp.Services
 {
     public interface IUserApiClient
     {
-        Task<string> Authenticate(LoginRequest request);
-        Task<PagedResult<UserViewModel>> GetUsersPaging(GetUserPagingRequest request);
-        Task<bool> RegisterUser(RegisterRequest request);
+        Task<ApiResult<string>> Authenticate(LoginRequest request);
+        Task<ApiResult<PagedResult<UserViewModel>>> GetUsersPaging(GetUserPagingRequest request);
+        Task<ApiResult<bool>> RegisterUser(RegisterRequest request);
+        Task<ApiResult<bool>> UpdateUser(Guid Id, UpdateRequest request);
+        Task<ApiResult<UserViewModel>> GetById(Guid Id);
+        Task<ApiResult<bool>> Delete(Guid id);
     }
 }

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace MockProjectSolution.Application.Catalog.Products.Dtos
+namespace MockProjectSolution.Application.Common
 {
     public class PagedViewModel<T>
     {

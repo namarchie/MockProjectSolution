@@ -1,4 +1,4 @@
-﻿@using MockProjectSolution.Application.Catalog.Products.Dtos
+﻿@using MockProjectSolution.Application.Common
 @model PagedResult<MockProjectSolution.Application.Users.Dtos.UserViewModel>
 
 @{
@@ -71,15 +71,16 @@
                                         @Html.DisplayFor(modelItem => item.Dob)
                                     </td>
                                     <td>
-                                        @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                                        @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                                        @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                                        @Html.ActionLink("Update", "Update", new { id = item.Id }) |
+                                        @Html.ActionLink("Detail", "Detail", new { id = item.Id }) |
+                                        @Html.ActionLink("Delete", "Delete", new { id = item.Id })
                                     </td>
                                 </tr>
                             }
                         </tbody>
                     </table>
                 </div>
+                @await Component.InvokeAsync("Pager", Model)
             </div>
         </div>
     </div>

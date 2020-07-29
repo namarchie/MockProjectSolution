@@ -13,5 +13,6 @@ namespace MockProjectSolution.Application.Users.Dtos
         public string UserName { set; get; }
         public Guid Id { get; set; }
         public DateTime Dob { get; set; }
+        public IList<string> Roles { get; set; }
     }
 }

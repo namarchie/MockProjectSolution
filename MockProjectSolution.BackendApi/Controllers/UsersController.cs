@@ -12,11 +12,11 @@ namespace MockProjectSolution.BackendApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    
+
     public class UsersController : ControllerBase
     {
         private readonly IUserService _userService;
-        public UsersController (IUserService userService)
+        public UsersController(IUserService userService)
         {
             _userService = userService;
         }
@@ -24,12 +24,12 @@ namespace MockProjectSolution.BackendApi.Controllers
         [AllowAnonymous]
         public async Task<IActionResult> Authenticate([FromBody] LoginRequest request)
         {
-            if(!ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
             var resultToken = await _userService.Authenticate(request);
-            if (string.IsNullOrEmpty(resultToken)) return BadRequest("Tai khoan hoac mat khau chua dung");
+            if (string.IsNullOrEmpty(resultToken.ResultObj)) return BadRequest(resultToken);
             return Ok(resultToken);
         }
         [HttpPost]
@@ -41,14 +41,40 @@ namespace MockProjectSolution.BackendApi.Controllers
                 return BadRequest(ModelState);
             }
             var result = await _userService.Register(request);
-            if (!result) return BadRequest("Dang ky khong thanh cong");
-            return Ok();
+            if (!result.IsSuccessed) return BadRequest(result);
+            return Ok(result);
+        }
+        [HttpPut("{id}")]
+        public async Task<IActionResult> Update(Guid id, [FromBody] UpdateRequest request)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            var result = await _userService.Update(id, request);
+            if (!result.IsSuccessed)
+            {
+                return BadRequest(result);
+            }
+            return Ok(result);
         }
         [HttpGet("paging")]
-        public async Task<IActionResult> GetAllPaging ([FromQuery] GetUserPagingRequest request)
+        public async Task<IActionResult> GetAllPaging([FromQuery] GetUserPagingRequest request)
         {
             var users = await _userService.GetUsersPaging(request);
             return Ok(users);
+        }
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetById (Guid id)
+        {
+            var user = await _userService.GetById(id);
+            return Ok(user);
+        }
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> Delete(Guid id)
+        {
+            var result = await _userService.Delete(id);
+            return Ok(result);
         }
     }
 }

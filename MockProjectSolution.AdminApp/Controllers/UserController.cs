@@ -26,18 +26,16 @@ namespace MockProjectSolution.AdminApp.Controllers
             _userApiClient = userApiClient;
             _configuration = configuration;
         }
-        public async Task<IActionResult> Index(string keyword , int pageIndex = 1 , int pageSize = 10)
+        public async Task<IActionResult> Index(string keyword , int pageIndex = 1 , int pageSize = 1)
         {
-            var session = HttpContext.Session.GetString("Token");
             var request = new GetUserPagingRequest()
             {
-                BearerToken = session,
                 Keyword = keyword,
                 PageIndex = pageIndex,
                 PageSize = pageSize
             };
             var data = await _userApiClient.GetUsersPaging(request);
-            return View(data);
+            return View(data.ResultObj);
         }
         
         [HttpGet]
@@ -51,7 +49,8 @@ namespace MockProjectSolution.AdminApp.Controllers
             if (!ModelState.IsValid)
                 return View();
             var result = await _userApiClient.RegisterUser(request);
-            if (result) return RedirectToAction("Index");
+            if (result.IsSuccessed) return RedirectToAction("Index");
+            ModelState.AddModelError("", result.Message);
 
             return View(request);
         }
@@ -60,8 +59,78 @@ namespace MockProjectSolution.AdminApp.Controllers
         {
             await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
             HttpContext.Session.Remove("Token");
-            return RedirectToAction("Login", "User");
+            return RedirectToAction("Index", "Login");
         }
-        
+        [HttpGet]
+        public async Task<IActionResult> Update(Guid id)
+        {
+            var result = await _userApiClient.GetById(id);
+            if (result.IsSuccessed)
+            {
+                var user = result.ResultObj;
+                var updateRequest = new UpdateRequest()
+                {
+                    Dob = user.Dob,
+                    Email = user.Email,
+                    FirstName = user.FirstName,
+                    LastName = user.LastName,
+                    PhoneNumber = user.PhoneNumber,
+                    Id = id
+                };
+                return View(updateRequest);
+            }
+            return RedirectToAction("Error", "Home");
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Update(UpdateRequest request)
+        {
+            if (!ModelState.IsValid)
+                return View();
+
+            var result = await _userApiClient.UpdateUser(request.Id, request);
+            if (result.IsSuccessed)
+            {
+                TempData["result"] = "Cập nhật người dùng thành công";
+                return RedirectToAction("Index");
+            }
+
+            ModelState.AddModelError("", result.Message);
+            return View(request);
+        }
+        [HttpGet]
+        public async Task<IActionResult> Detail(Guid id)
+        {
+            var result = await _userApiClient.GetById(id);
+            return View(result.ResultObj);
+        }
+        [HttpGet]
+        public async Task<IActionResult> Delete(Guid id)
+        {
+            var result = await _userApiClient.GetById(id);
+            return View(new DeleteRequest()
+            {
+                Id = id,
+                Dob = result.ResultObj.Dob,
+                FirstName = result.ResultObj.FirstName,
+                LastName = result.ResultObj.LastName,
+                Email = result.ResultObj.Email,
+                PhoneNumber = result.ResultObj.PhoneNumber,
+                UserName = result.ResultObj.UserName,
+
+            });
+        }
+        [HttpPost]
+        public async Task<IActionResult> Delete(DeleteRequest request)
+        {
+            if (!ModelState.IsValid)
+                return View();
+            var result = await _userApiClient.Delete(request.Id);
+            if (result.IsSuccessed) return RedirectToAction("Index");
+            ModelState.AddModelError("", result.Message);
+
+            return View(request);
+        }
+
     }
 }

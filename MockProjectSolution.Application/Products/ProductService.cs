@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Xrm.Sdk.Workflow;
 using MockProjectSolution.Application.Catalog.Products.Dtos;
+using MockProjectSolution.Application.Common;
 using MockProjectSolution.Common.Exceptions;
 using MockProjectSolution.Data.EF;
 using MockProjectSolution.Data.Entities;
