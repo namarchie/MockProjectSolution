@@ -21,6 +21,7 @@
                         <img src="http://placehold.it/90x38/fff/6E329D&text=LOGO" alt="" />
                     </div>
                     <form class="form-signin" asp-action="index" asp-controller="login" method="post">
+                        <div asp-validation-summary="All" class="text-danger"></div>
                         <div class="form-group">
                             <input type="text" class="form-control" asp-for="UserName" placeholder="Nhập tài khoản" required autofocus />
                         </div>
