@@ -14,5 +14,6 @@ namespace MockProjectSolution.Application.Catalog.Products.Dtos
         public string Description { set; get; }
         public IFormFile Image { set; get; }
         public int CategoryId { set; get; }
+        public string CategoryName { set; get; }
     }
 }

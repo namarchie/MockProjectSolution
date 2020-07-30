@@ -9,17 +9,18 @@ namespace MockProjectSolution.Application.Catalog.Products
 {
     public interface IProductService
     {
-        Task<int> Create(ProductCreateRequest request);
+        Task<ApiResult<bool>> Create(ProductCreateRequest request);
 
         Task<int> Update(ProductUpdateRequest request);
 
         Task<int> Delete(int productId);
 
-        Task<PagedResult<ProductViewModel>> GetAllPaging(GetProductPagingRequest request, int categoryId);
-        Task<ProductViewModel> GetById(int productId);
+        Task<ApiResult<PagedResult<ProductViewModel>>> GetProductsPaging(GetProductPagingRequest request);
+        Task<ApiResult<ProductViewModel>> GetById(int Id);
 
         string NewImage(ProductCreateRequest request);
         string UpdateImage(ProductUpdateRequest request);
+        Task<PagedResult<CategoryViewModel>> GetAllCategory();
 
 
 

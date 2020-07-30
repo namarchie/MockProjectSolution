@@ -9,11 +9,14 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.CodeAnalysis.Options;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using MockProjectSolution.AdminApp.Services;
+using MockProjectSolution.Application.Catalog.Products;
 using MockProjectSolution.Application.Users.Dtos;
+using MockProjectSolution.Data.EF;
 
 namespace MockProjectSolution.AdminApp
 {
@@ -31,6 +34,10 @@ namespace MockProjectSolution.AdminApp
         {
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddTransient<IUserApiClient, UserApiClient>();
+            services.AddTransient<IRoleApiClient, RoleApiClient>();
+            services.AddTransient<IProductApiClient, ProductApiClient>();
+            services.AddTransient<IProductService, ProductService>();
+            services.AddDbContext<MockProjectDbContext>(Options => Options.UseSqlServer(Configuration.GetConnectionString("MockProjectSolution")));
             services.AddHttpClient();
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(options =>
             {

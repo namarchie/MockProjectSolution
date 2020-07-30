@@ -15,5 +15,6 @@ namespace MockProjectSolution.AdminApp.Services
         Task<ApiResult<bool>> UpdateUser(Guid Id, UpdateRequest request);
         Task<ApiResult<UserViewModel>> GetById(Guid Id);
         Task<ApiResult<bool>> Delete(Guid id);
+        Task<ApiResult<bool>> RoleAssign(Guid id, RoleAssignRequest request);
     }
 }

@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Xrm.Sdk.Workflow;
 using MockProjectSolution.Application.Catalog.Products.Dtos;
@@ -29,24 +30,7 @@ namespace MockProjectSolution.Application.Catalog.Products
             _webHostEnvironment = webHostEnvironment;
         }
 
-        public async Task<int> Create(ProductCreateRequest request)
-        {
-            string uniqueImageName = NewImage(request);
-            Product product = new Product
-            {
-                Name = request.Name,
-                Account = request.Account,
-                Password = request.Password,
-                Price = request.Price,
-                Description = request.Description,
-                Image = uniqueImageName,
-                CategoryId = request.CategoryId,
-                DateCreated = DateTime.Now
-            };
-            _mockProjectDbContext.Add(product);
-            await _mockProjectDbContext.SaveChangesAsync();
-            return product.Id;
-        }
+
 
         public async Task<int> Delete(int productId)
         {
@@ -58,8 +42,9 @@ namespace MockProjectSolution.Application.Catalog.Products
      
         }
 
-        public async Task<PagedResult<ProductViewModel>> GetAllPaging(GetProductPagingRequest request, int categoryId)
+        public async Task<ApiResult<PagedResult<ProductViewModel>>> GetProductsPaging(GetProductPagingRequest request)
         {
+            
             var query = _mockProjectDbContext.Products.Select(x => new ProductViewModel()
             {
                 Id = x.Id,
@@ -70,20 +55,13 @@ namespace MockProjectSolution.Application.Catalog.Products
                 Price = x.Price,
                 DateCreated = x.DateCreated,
                 Image = x.Image,
-                CategoryId = x.CategoryId
-            });
+                CategoryId = x.CategoryId,
+                Category = _mockProjectDbContext.Categories.First( o => o.Id == x.CategoryId).Name
+
+            }) ;
             if (!string.IsNullOrEmpty(request.Keyword))
             {
                 query = query.Where(x => x.Name.Contains(request.Keyword));
-            }
-                
-            if (categoryId != 0)
-            {
-                query = query.Where(x=> x.CategoryId == categoryId);
-            }
-            if (query == null)
-            {
-                throw new MockProjectException($"Cannot find products with categoryid : {categoryId}");
             }
             int totalRow = await query.CountAsync();
             var data =  query.Skip((request.PageIndex - 1) * request.PageSize)
@@ -95,7 +73,7 @@ namespace MockProjectSolution.Application.Catalog.Products
                 PageIndex = request.PageIndex,
                 Items = await data.ToListAsync()
             };
-            return pagedResult;
+            return new ApiSuccessResult<PagedResult<ProductViewModel>>(pagedResult);
         }
 
         public async Task<int> Update(ProductUpdateRequest request)
@@ -147,14 +125,15 @@ namespace MockProjectSolution.Application.Catalog.Products
             return uniqueImageName;
         }
 
-        public async Task<ProductViewModel> GetById(int productId)
+        public async Task<ApiResult<ProductViewModel>> GetById(int productId)
         {
             var product = await _mockProjectDbContext.Products.FindAsync(productId);
+            var product1 = _mockProjectDbContext.Categories.First(x => x.Id == productId);
             if (product == null)
             {
                 throw new MockProjectException("Khong tim thay");
             }
-            var data = new ProductViewModel()
+            var productViewModel = new ProductViewModel()
             {
                 Account = product.Account,
                 Password = product.Password,
@@ -164,9 +143,45 @@ namespace MockProjectSolution.Application.Catalog.Products
                 DateCreated = product.DateCreated,
                 CategoryId = product.CategoryId,
                 Image = product.Image,
-                Id = product.Id
+                Id = product.Id,
+                Category = product1.Name
             };
-            return data;
+            return new ApiSuccessResult<ProductViewModel> (productViewModel);
+        }
+
+        async Task<ApiResult<bool>> IProductService.Create(ProductCreateRequest request)
+        {
+            var category = _mockProjectDbContext.Categories.First(x => x.Name == request.CategoryName);
+            string uniqueImageName = NewImage(request);
+            Product product = new Product
+            {
+                Name = request.Name,
+                Account = request.Account,
+                Password = request.Password,
+                Price = request.Price,
+                Description = request.Description,
+                Image = uniqueImageName,
+                CategoryId = category.Id,
+                DateCreated = DateTime.Now
+            };
+            _mockProjectDbContext.Add(product);
+            await _mockProjectDbContext.SaveChangesAsync();
+            return new ApiSuccessResult<bool>();
+        }
+
+        public async Task<PagedResult<CategoryViewModel>> GetAllCategory()
+        {
+            var category = _mockProjectDbContext.Categories.Select(x => new CategoryViewModel()
+            {
+                CategoryId= x.Id,
+                CategoryName = x.Name,
+            });
+            int totalRow = await category.CountAsync();
+            var pageResult = new PagedResult<CategoryViewModel>()
+            {
+                Items = await category.ToListAsync()
+            };
+            return pageResult;
         }
     }
 }

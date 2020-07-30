@@ -12,7 +12,6 @@ namespace MockProjectSolution.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize]
     public class ProductController : ControllerBase
     {
         private readonly IProductService _productService;
@@ -29,18 +28,18 @@ namespace MockProjectSolution.Api.Controllers
             return Ok();
         }
         [HttpPost]
-        public async Task<IActionResult> Create([FromForm] ProductCreateRequest request)
+        public async Task<IActionResult> Create([FromBody] ProductCreateRequest request)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
-            var productId = await _productService.Create(request);
-            if (productId == 0)
-                return BadRequest();
+            var product = await _productService.Create(request);
+            if (!product.IsSuccessed)
+                return BadRequest(product);
 
 
-            return Ok(productId);
+            return Ok(product);
         }
         [HttpPut]
         public async Task<IActionResult> Update([FromForm] ProductUpdateRequest request)
@@ -57,18 +56,11 @@ namespace MockProjectSolution.Api.Controllers
             return Ok();
 
         }
-        [HttpGet("GetAll")]
-        public async Task<IActionResult> GetAllPaging ( int CategoryId=1 , string keyword="" , int pageIndex=1, int pageSize=10)
+        [HttpGet("paging")]
+        public async Task<IActionResult> GetProductsPaging ([FromQuery] GetProductPagingRequest request)
         {
-            GetProductPagingRequest request = new GetProductPagingRequest()
-            {
-                PageIndex=pageIndex,
-                PageSize =pageSize,
-                Keyword = keyword
-            };
-            var affected = await _productService.GetAllPaging(request, CategoryId);
-            return Ok(affected);
-
+            var users = await _productService.GetProductsPaging(request);
+            return Ok(users);
         }
         [HttpGet("{productId}")]
         public async Task<IActionResult> GetById (int productId)

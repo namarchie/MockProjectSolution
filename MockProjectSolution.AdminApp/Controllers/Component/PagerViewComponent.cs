@@ -13,5 +13,6 @@ namespace MockProjectSolution.AdminApp.Controllers.Component
         {
             return Task.FromResult((IViewComponentResult)View("Default", result));
         }
+        
     }
 }

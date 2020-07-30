@@ -442,3 +442,7 @@ C:\Users\namhv\source\repos\MockProjectSolution\MockProjectSolution.AdminApp\obj
 C:\Users\namhv\source\repos\MockProjectSolution\MockProjectSolution.AdminApp\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Components\Pager\Default.cshtml.g.cs
 C:\Users\namhv\source\repos\MockProjectSolution\MockProjectSolution.AdminApp\obj\Debug\netcoreapp3.1\Razor\Views\User\Detail.cshtml.g.cs
 C:\Users\namhv\source\repos\MockProjectSolution\MockProjectSolution.AdminApp\obj\Debug\netcoreapp3.1\Razor\Views\User\Delete.cshtml.g.cs
+C:\Users\namhv\source\repos\MockProjectSolution\MockProjectSolution.AdminApp\obj\Debug\netcoreapp3.1\Razor\Views\User\RoleAssign.cshtml.g.cs
+C:\Users\namhv\source\repos\MockProjectSolution\MockProjectSolution.AdminApp\obj\Debug\netcoreapp3.1\Razor\Views\Product\Index.cshtml.g.cs
+C:\Users\namhv\source\repos\MockProjectSolution\MockProjectSolution.AdminApp\obj\Debug\netcoreapp3.1\Razor\Views\Product\Detail.cshtml.g.cs
+C:\Users\namhv\source\repos\MockProjectSolution\MockProjectSolution.AdminApp\obj\Debug\netcoreapp3.1\Razor\Views\Product\Create.cshtml.g.cs

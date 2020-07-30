@@ -9,7 +9,9 @@ using Microsoft.AspNetCore.Mvc.Filters;
 
 namespace eShopSolution.AdminApp.Controllers
 {
-    [Authorize]
+    [Authorize(Roles ="admin")]
+
+
     public class BaseController : Controller
     {
         public override void OnActionExecuting(ActionExecutingContext context)

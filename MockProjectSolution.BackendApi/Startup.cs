@@ -19,6 +19,7 @@ using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using MockProjectSolution.Application.Catalog.Products;
 using MockProjectSolution.Application.Catalog.Users;
+using MockProjectSolution.Application.Roles;
 using MockProjectSolution.Application.Users.Dtos;
 using MockProjectSolution.Data.EF;
 using MongoDB.Driver.Core.Configuration;
@@ -46,6 +47,7 @@ namespace MockProjectSolution.Api
             services.AddTransient<SignInManager<AppUser>, SignInManager<AppUser>>();
             services.AddTransient<RoleManager<AppRole>, RoleManager<AppRole>>();
             services.AddTransient<IUserService, UserService>();
+            services.AddTransient<IRoleService, RoleService>();
             services.AddTransient<IValidator<LoginRequest>, LoginRequestValidator>();
             services.AddTransient<IValidator<RegisterRequest>, RegisterRequestValidator>();
             services.AddSwaggerGen(c =>
