@@ -12,5 +12,7 @@ namespace MockProjectSolution.AdminApp.Services
         Task<ApiResult<PagedResult<ProductViewModel>>> GetProductsPaging(GetProductPagingRequest request);
         Task<ApiResult<ProductViewModel>> GetById(int  Id);
         Task<ApiResult<bool>> Create(ProductCreateRequest request);
+        Task<ApiResult<bool>> Delete(int id);
+        Task<ApiResult<bool>> Update(int Id, ProductUpdateRequest request);
     }
 }

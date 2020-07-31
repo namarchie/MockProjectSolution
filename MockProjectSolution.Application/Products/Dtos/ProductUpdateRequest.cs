@@ -13,7 +13,8 @@ namespace MockProjectSolution.Application.Catalog.Products.Dtos
         public decimal Price { set; get; }
         public string Name { set; get; }
         public string Description { set; get; }
-        public IFormFile Image { set; get; }
+        //public IFormFile Image { set; get; }
         public int CategoryId { set; get; }
+        public string CategoryName { set; get; }
     }
 }

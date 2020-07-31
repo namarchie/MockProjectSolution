@@ -48,7 +48,7 @@ namespace MockProjectSolution.AdminApp.Controllers
             var authProperties = new AuthenticationProperties
             {
                 ExpiresUtc = DateTimeOffset.UtcNow.AddMinutes(10),
-                IsPersistent = false
+                IsPersistent = true
             };
             HttpContext.Session.SetString("Token", result.ResultObj);
             await HttpContext.SignInAsync(

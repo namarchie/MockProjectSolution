@@ -8,6 +8,7 @@ using Microsoft.IdentityModel.Tokens;
 using MockProjectSolution.Application.Common;
 using MockProjectSolution.Application.Users.Dtos;
 using MockProjectSolution.Common.Exceptions;
+using MockProjectSolution.Data.EF;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -25,7 +26,7 @@ namespace MockProjectSolution.Application.Catalog.Users
         private readonly SignInManager<AppUser> _signInManager;
         private readonly RoleManager<AppRole> _roleManager;
         private readonly IConfiguration _config;
-        public UserService (UserManager<AppUser> userManager , SignInManager<AppUser> signInManager, RoleManager<AppRole> roleManager, IConfiguration config)
+        public UserService ( UserManager<AppUser> userManager , SignInManager<AppUser> signInManager, RoleManager<AppRole> roleManager, IConfiguration config)
         {
             _userManager = userManager;
             _signInManager = signInManager;
@@ -99,7 +100,7 @@ namespace MockProjectSolution.Application.Catalog.Users
             var query = _userManager.Users;
             if (!string.IsNullOrEmpty(request.Keyword))
             {
-                query = query.Where(x => x.UserName == request.Keyword || x.PhoneNumber.Contains(request.Keyword));
+                query = query.Where(x => x.UserName.Contains(request.Keyword));
             }
             int totalRow = await query.CountAsync();
 

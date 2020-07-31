@@ -32,13 +32,14 @@ namespace MockProjectSolution.Application.Catalog.Products
 
 
 
-        public async Task<int> Delete(int productId)
+        public async Task<ApiResult<bool>> Delete(int Id)
         {
-            var product = await _mockProjectDbContext.Products.FindAsync(productId);
+            var product = await _mockProjectDbContext.Products.FindAsync(Id);
 
             _mockProjectDbContext.Products.Remove(product);
 
-            return await _mockProjectDbContext.SaveChangesAsync();
+            await _mockProjectDbContext.SaveChangesAsync();
+            return new ApiSuccessResult<bool>();
      
         }
 
@@ -61,7 +62,7 @@ namespace MockProjectSolution.Application.Catalog.Products
             }) ;
             if (!string.IsNullOrEmpty(request.Keyword))
             {
-                query = query.Where(x => x.Name.Contains(request.Keyword));
+                query = query.Where(x => x.Name.Contains(request.Keyword) || x.Account.Contains(request.Keyword));
             }
             int totalRow = await query.CountAsync();
             var data =  query.Skip((request.PageIndex - 1) * request.PageSize)
@@ -76,10 +77,11 @@ namespace MockProjectSolution.Application.Catalog.Products
             return new ApiSuccessResult<PagedResult<ProductViewModel>>(pagedResult);
         }
 
-        public async Task<int> Update(ProductUpdateRequest request)
+        public async Task<ApiResult<bool>> Update(int id, ProductUpdateRequest request)
         {
-            string uniqueImageName = UpdateImage(request);
-            var product = await _mockProjectDbContext.Products.FindAsync(request.Id);
+            //string uniqueImageName = UpdateImage(request);
+            var category = _mockProjectDbContext.Categories.First(x => x.Name == request.CategoryName);
+            var product = await _mockProjectDbContext.Products.FindAsync(id);
 
             if (product == null) throw new MockProjectException("Khong tim thay");
             product.Name = request.Name;
@@ -87,11 +89,12 @@ namespace MockProjectSolution.Application.Catalog.Products
             product.Account = request.Account;
             product.Password = request.Password;
             product.Description = request.Description;
-            product.CategoryId = request.CategoryId;
-            product.Image = uniqueImageName;
+            product.CategoryId = category.Id;
+            //product.Image = uniqueImageName;
 
 
-            return await _mockProjectDbContext.SaveChangesAsync();
+            await _mockProjectDbContext.SaveChangesAsync();
+            return new ApiSuccessResult<bool>();
         }
 
         public string NewImage(ProductCreateRequest request)
@@ -109,26 +112,26 @@ namespace MockProjectSolution.Application.Catalog.Products
             }
             return uniqueImageName;
         }
-        public string UpdateImage(ProductUpdateRequest request)
-        {
-            string uniqueImageName = null;
-            if (request.Image != null)
-            {
-                string uploadsFolder = Path.Combine(_webHostEnvironment.WebRootPath, "images");
-                uniqueImageName = Guid.NewGuid().ToString() + "_" + request.Image.FileName;
-                string imagePath = Path.Combine(uploadsFolder, uniqueImageName);
-                using (var fileStream = new FileStream(imagePath, FileMode.Create))
-                {
-                    request.Image.CopyTo(fileStream);
-                }
-            }
-            return uniqueImageName;
-        }
+        //public string UpdateImage(ProductUpdateRequest request)
+        //{
+        //    string uniqueImageName = null;
+        //    if (request.Image != null)
+        //    {
+        //        string uploadsFolder = Path.Combine(_webHostEnvironment.WebRootPath, "images");
+        //        uniqueImageName = Guid.NewGuid().ToString() + "_" + request.Image.FileName;
+        //        string imagePath = Path.Combine(uploadsFolder, uniqueImageName);
+        //        using (var fileStream = new FileStream(imagePath, FileMode.Create))
+        //        {
+        //            request.Image.CopyTo(fileStream);
+        //        }
+        //    }
+        //    return uniqueImageName;
+        //}
 
         public async Task<ApiResult<ProductViewModel>> GetById(int productId)
         {
             var product = await _mockProjectDbContext.Products.FindAsync(productId);
-            var product1 = _mockProjectDbContext.Categories.First(x => x.Id == productId);
+            var product1 = _mockProjectDbContext.Categories.First(x => x.Id == product.CategoryId);
             if (product == null)
             {
                 throw new MockProjectException("Khong tim thay");

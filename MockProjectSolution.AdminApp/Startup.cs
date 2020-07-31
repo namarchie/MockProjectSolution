@@ -15,6 +15,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using MockProjectSolution.AdminApp.Services;
 using MockProjectSolution.Application.Catalog.Products;
+using MockProjectSolution.Application.Categories;
 using MockProjectSolution.Application.Users.Dtos;
 using MockProjectSolution.Data.EF;
 
@@ -36,13 +37,15 @@ namespace MockProjectSolution.AdminApp
             services.AddTransient<IUserApiClient, UserApiClient>();
             services.AddTransient<IRoleApiClient, RoleApiClient>();
             services.AddTransient<IProductApiClient, ProductApiClient>();
+            services.AddTransient<ICategoryApiClient, CategoryApiClient>();
             services.AddTransient<IProductService, ProductService>();
+            services.AddTransient<ICategoryService, CategoryService>();
             services.AddDbContext<MockProjectDbContext>(Options => Options.UseSqlServer(Configuration.GetConnectionString("MockProjectSolution")));
             services.AddHttpClient();
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(options =>
             {
                 options.LoginPath = "/Login/Index/";
-                options.AccessDeniedPath = "/User/Forbidden";
+                options.AccessDeniedPath = "/Login/Index";
             });
             services.AddControllersWithViews().
                 AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<LoginRequestValidator>());
