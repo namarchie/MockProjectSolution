@@ -12,7 +12,6 @@ namespace MockProjectSolution.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize]
     public class ProductController : ControllerBase
     {
         private readonly IProductService _productService;
@@ -29,7 +28,8 @@ namespace MockProjectSolution.Api.Controllers
             return Ok(affectedResult);
         }
         [HttpPost]
-        public async Task<IActionResult> Create([FromBody] ProductCreateRequest request)
+        [Consumes("multipart/form-data")]
+        public async Task<IActionResult> Create([FromForm] ProductCreateRequest request)
         {
             if (!ModelState.IsValid)
             {
@@ -43,7 +43,8 @@ namespace MockProjectSolution.Api.Controllers
             return Ok(product);
         }
         [HttpPut("{id}")]
-        public async Task<IActionResult> Update(int id, [FromBody] ProductUpdateRequest request)
+        [Consumes("multipart/form-data")]
+        public async Task<IActionResult> Update(int id, [FromForm] ProductUpdateRequest request)
         {
             if (!ModelState.IsValid)
             {

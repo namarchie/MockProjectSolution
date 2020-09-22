@@ -450,3 +450,5 @@ C:\Users\namhv\source\repos\MockProjectSolution\MockProjectSolution.AdminApp\obj
 C:\Users\namhv\source\repos\MockProjectSolution\MockProjectSolution.AdminApp\obj\Debug\netcoreapp3.1\Razor\Views\Product\Update.cshtml.g.cs
 C:\Users\namhv\source\repos\MockProjectSolution\MockProjectSolution.AdminApp\obj\Debug\netcoreapp3.1\Razor\Views\Category\Create.cshtml.g.cs
 C:\Users\namhv\source\repos\MockProjectSolution\MockProjectSolution.AdminApp\obj\Debug\netcoreapp3.1\Razor\Views\Category\Index.cshtml.g.cs
+C:\Users\namhv\source\repos\MockProjectSolution\MockProjectSolution.AdminApp\obj\Debug\netcoreapp3.1\Razor\Views\Category\Update.cshtml.g.cs
+C:\Users\namhv\source\repos\MockProjectSolution\MockProjectSolution.AdminApp\obj\Debug\netcoreapp3.1\Razor\Views\Category\Delete.cshtml.g.cs

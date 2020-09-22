@@ -5,6 +5,7 @@ using MockProjectSolution.Application.Common;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
@@ -30,10 +31,30 @@ namespace MockProjectSolution.AdminApp.Services
             var client = _httpClientFactory.CreateClient();
             client.BaseAddress = new Uri(_configuration["BaseAddress"]);
 
-            var json = JsonConvert.SerializeObject(request);
-            var httpContent = new StringContent(json, Encoding.UTF8, "application/json");
+            //var json = JsonConvert.SerializeObject(request);
+            //var httpContent = new StringContent(json, Encoding.UTF8, "application/json");
+            var requestContent = new MultipartFormDataContent();
 
-            var response = await client.PostAsync($"/api/product", httpContent);
+            if (request.Image != null)
+            {
+                byte[] data;
+                using (var br = new BinaryReader(request.Image.OpenReadStream()))
+                {
+                    data = br.ReadBytes((int)request.Image.OpenReadStream().Length);
+                }
+                ByteArrayContent bytes = new ByteArrayContent(data);
+                requestContent.Add(bytes, "image", request.Image.FileName);
+            }
+            requestContent.Add(new StringContent(request.Name.ToString()), "name");
+            requestContent.Add(new StringContent(request.Account.ToString()), "account");
+            requestContent.Add(new StringContent(request.Password.ToString()), "password");
+            requestContent.Add(new StringContent(request.Price.ToString()), "price");
+            requestContent.Add(new StringContent(request.Description.ToString()), "description");
+
+            requestContent.Add(new StringContent(request.CategoryName.ToString()), "categoryName");
+
+            var response = await client.PostAsync($"/api/product", requestContent);
+
             var result = await response.Content.ReadAsStringAsync();
             if (response.IsSuccessStatusCode)
             {
@@ -89,14 +110,47 @@ namespace MockProjectSolution.AdminApp.Services
 
         public async Task<ApiResult<bool>> Update(int id, ProductUpdateRequest request)
         {
+            //var client = _httpClientFactory.CreateClient();
+            //client.BaseAddress = new Uri(_configuration["BaseAddress"]);
+            //var sessions = _httpContextAccessor.HttpContext.Session.GetString("Token");
+            //client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", sessions);
+            //var json = JsonConvert.SerializeObject(request);
+            //var httpContent = new StringContent(json, Encoding.UTF8, "application/json");
+
+            //var response = await client.PutAsync($"/api/product/{id}", httpContent);
+            //var result = await response.Content.ReadAsStringAsync();
+            //if (response.IsSuccessStatusCode)
+            //{
+            //    return JsonConvert.DeserializeObject<ApiSuccessResult<bool>>(result);
+            //}
+            //return JsonConvert.DeserializeObject<ApiErrorResult<bool>>(result);
             var client = _httpClientFactory.CreateClient();
             client.BaseAddress = new Uri(_configuration["BaseAddress"]);
-            var sessions = _httpContextAccessor.HttpContext.Session.GetString("Token");
-            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", sessions);
-            var json = JsonConvert.SerializeObject(request);
-            var httpContent = new StringContent(json, Encoding.UTF8, "application/json");
 
-            var response = await client.PutAsync($"/api/product/{id}", httpContent);
+            //var json = JsonConvert.SerializeObject(request);
+            //var httpContent = new StringContent(json, Encoding.UTF8, "application/json");
+            var requestContent = new MultipartFormDataContent();
+
+            if (request.Image != null)
+            {
+                byte[] data;
+                using (var br = new BinaryReader(request.Image.OpenReadStream()))
+                {
+                    data = br.ReadBytes((int)request.Image.OpenReadStream().Length);
+                }
+                ByteArrayContent bytes = new ByteArrayContent(data);
+                requestContent.Add(bytes, "image", request.Image.FileName);
+            }
+            requestContent.Add(new StringContent(request.Name.ToString()), "name");
+            requestContent.Add(new StringContent(request.Account.ToString()), "account");
+            requestContent.Add(new StringContent(request.Password.ToString()), "password");
+            requestContent.Add(new StringContent(request.Price.ToString()), "price");
+            requestContent.Add(new StringContent(request.Description.ToString()), "description");
+
+            requestContent.Add(new StringContent(request.CategoryName.ToString()), "categoryName");
+
+            var response = await client.PutAsync($"/api/product/{id}", requestContent);
+
             var result = await response.Content.ReadAsStringAsync();
             if (response.IsSuccessStatusCode)
             {

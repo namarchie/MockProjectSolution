@@ -65,7 +65,7 @@ namespace MockProjectSolution.AdminApp.Controllers
             return View();
         }
         [HttpPost]
-        [ValidateAntiForgeryToken]
+        [Consumes("multipart/form-data")]
         public async Task<IActionResult> Create(ProductCreateRequest request)
         {
             if (!ModelState.IsValid)
@@ -134,6 +134,7 @@ namespace MockProjectSolution.AdminApp.Controllers
         }
 
         [HttpPost]
+        [Consumes("multipart/form-data")]
         public async Task<IActionResult> Update(ProductUpdateRequest request)
         {
             if (!ModelState.IsValid)

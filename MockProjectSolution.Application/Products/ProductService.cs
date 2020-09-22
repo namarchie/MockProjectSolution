@@ -79,7 +79,7 @@ namespace MockProjectSolution.Application.Catalog.Products
 
         public async Task<ApiResult<bool>> Update(int id, ProductUpdateRequest request)
         {
-            //string uniqueImageName = UpdateImage(request);
+            string uniqueImageName = UpdateImage(request);
             var category = _mockProjectDbContext.Categories.First(x => x.Name == request.CategoryName);
             var product = await _mockProjectDbContext.Products.FindAsync(id);
 
@@ -90,7 +90,7 @@ namespace MockProjectSolution.Application.Catalog.Products
             product.Password = request.Password;
             product.Description = request.Description;
             product.CategoryId = category.Id;
-            //product.Image = uniqueImageName;
+            product.Image = uniqueImageName;
 
 
             await _mockProjectDbContext.SaveChangesAsync();
@@ -112,21 +112,21 @@ namespace MockProjectSolution.Application.Catalog.Products
             }
             return uniqueImageName;
         }
-        //public string UpdateImage(ProductUpdateRequest request)
-        //{
-        //    string uniqueImageName = null;
-        //    if (request.Image != null)
-        //    {
-        //        string uploadsFolder = Path.Combine(_webHostEnvironment.WebRootPath, "images");
-        //        uniqueImageName = Guid.NewGuid().ToString() + "_" + request.Image.FileName;
-        //        string imagePath = Path.Combine(uploadsFolder, uniqueImageName);
-        //        using (var fileStream = new FileStream(imagePath, FileMode.Create))
-        //        {
-        //            request.Image.CopyTo(fileStream);
-        //        }
-        //    }
-        //    return uniqueImageName;
-        //}
+        public string UpdateImage(ProductUpdateRequest request)
+        {
+            string uniqueImageName = null;
+            if (request.Image != null)
+            {
+                string uploadsFolder = Path.Combine(_webHostEnvironment.WebRootPath, "images");
+                uniqueImageName = Guid.NewGuid().ToString() + "_" + request.Image.FileName;
+                string imagePath = Path.Combine(uploadsFolder, uniqueImageName);
+                using (var fileStream = new FileStream(imagePath, FileMode.Create))
+                {
+                    request.Image.CopyTo(fileStream);
+                }
+            }
+            return uniqueImageName;
+        }
 
         public async Task<ApiResult<ProductViewModel>> GetById(int productId)
         {
@@ -152,7 +152,7 @@ namespace MockProjectSolution.Application.Catalog.Products
             return new ApiSuccessResult<ProductViewModel> (productViewModel);
         }
 
-        async Task<ApiResult<bool>> IProductService.Create(ProductCreateRequest request)
+        public async Task<ApiResult<bool>> Create(ProductCreateRequest request)
         {
             var category = _mockProjectDbContext.Categories.First(x => x.Name == request.CategoryName);
             string uniqueImageName = NewImage(request);

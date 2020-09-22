@@ -19,7 +19,7 @@ namespace MockProjectSolution.Application.Catalog.Products
         Task<ApiResult<ProductViewModel>> GetById(int Id);
 
         string NewImage(ProductCreateRequest request);
-        //string UpdateImage(ProductUpdateRequest request);
+        string UpdateImage(ProductUpdateRequest request);
         Task<PagedResult<CategoryViewModel>> GetAllCategory();
 
 

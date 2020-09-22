@@ -1,28 +1,32 @@
-﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
-@model MockProjectSolution.Application.Catalog.Products.Dtos.ProductCreateRequest
+﻿@model MockProjectSolution.Application.Categories.Dtos.CategoryUpdateRequest
 
 @{
-    ViewData["Title"] = "Thêm mới sản phẩm";
+    ViewData["Title"] = "Cập nhật danh mục sản phẩm";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <div class="container-fluid">
-    <h1 class="mt-4">Thêm mới sản phẩm</h1>
+    <h1 class="mt-4">Cập nhật danh mục sản phẩm</h1>
     <ol class="breadcrumb mb-4">
         <li class="breadcrumb-item"><a href="index.html">Trang chủ</a></li>
-        <li class="breadcrumb-item active">Thêm mới sản phẩm</li>
+        <li class="breadcrumb-item active">Cập nhật danh mụcsản phẩm</li>
     </ol>
 
     <div class="card mb-4">
         <div class="card-header">
-            <a class="btn btn-success" asp-action="Index" asp-controller="Product">Về danh sách</a>
+            <a class="btn btn-success" asp-action="Index" asp-controller="Category">Về danh sách danh mụcsản phẩm</a>
         </div>
         <div class="card-body">
             <div class="row">
                 <div class="col-md-4">
-                    <form asp-action="Create" enctype="multipart/form-data" method="post" >
+                    <form asp-action="Update">
                         <div asp-validation-summary="All" class="text-danger"></div>
                         <div class="form-group">
+                            <label asp-for="CategoryName" class="control-label"></label>
+                            <input asp-for="CategoryName" class="form-control" />
+                            <span asp-validation-for="CategoryName" class="text-danger"></span>
+                        </div>
+                        @*<div class="form-group">
                             <label asp-for="Account" class="control-label"></label>
                             <input asp-for="Account" class="form-control" />
                             <span asp-validation-for="Account" class="text-danger"></span>
@@ -36,11 +40,6 @@
                             <label asp-for="Price" class="control-label"></label>
                             <input asp-for="Price" class="form-control" />
                             <span asp-validation-for="Price" class="text-danger"></span>
-                        </div>
-                        <div class="form-group">
-                            <label asp-for="Name" class="control-label"></label>
-                            <input asp-for="Name" class="form-control" />
-                            <span asp-validation-for="Name" class="text-danger"></span>
                         </div>
                         <div class="form-group">
                             <label asp-for="Description" class="control-label"></label>
@@ -59,14 +58,9 @@
 
                             </select>
                             <span asp-validation-for="CategoryName" class="text-danger"></span>
-                        </div>
+                        </div>*@
                         <div class="form-group">
-                            <label asp-for="Image" class="control-label"></label>
-                            <input asp-for="Image" type="file" class="form-control" />
-                            <span asp-validation-for="Image" class="text-danger"></span>
-                        </div>
-                        <div class="form-group">
-                            <input type="submit" value="Create" class="btn btn-primary" />
+                            <input type="submit" value="Update" class="btn btn-primary" />
                         </div>
                     </form>
                 </div>
@@ -74,15 +68,3 @@
         </div>
     </div>
 </div>
-@section scripts{
-    <script type="text/javascript">
-    // Add the following code if you want the name of the file appear on select
-        $(".custom-file-input").on("change", function () {
-            var fileName = $(this).val().split("\\").pop();
-            $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
-        });</script>
-}
-
-
-
-
